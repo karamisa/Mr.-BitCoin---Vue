@@ -6,7 +6,7 @@ const KEY = "contacts";
 
 export const contactService = {
   query,
-  get,
+  getById,
   remove,
   save,
   getEmptyContact,
@@ -23,7 +23,7 @@ async function query() {
   return contacts;
 }
 
-async function get(id) {
+async function getById(id) {
   return await dbService.get(KEY, id);
 }
 
@@ -38,10 +38,11 @@ async function save(contact) {
 
 function getEmptyContact() {
   return {
+    _id: "",
     name: "",
     email: "",
     phone: "",
-    imgUrl: "",
+    imgUrl: "https://robohash.org/autemvoluptatem.png?size=50x50&set=set1",
   };
 }
 

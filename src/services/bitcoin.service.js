@@ -3,6 +3,8 @@ import axios from 'axios'
 const exchangeRatesAPI = 'https://blockchain.info/tobtc?currency=USD&value=1'
 const marketPriceHistoryAPI = 'https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true'
 const avgBlockSizeAPI = 'https://api.blockchain.info/charts/avg-block-size?timespan=5months&format=json&cors=true'
+const marketStatsAPI = 'https://api.blockchain.info/stats?cors=true'
+
 
 async function getRate() {
     try {
@@ -646,11 +648,76 @@ async function getAvgBlockSize() {
     }
 }
 
+async function getMarketStats(){
+    try {
+        // const response = await axios.get(marketStatsAPI)
+        // return response.data
+        const data = {
+                "market_price_usd": 610.036975,
+                "hash_rate": 1841098926.6292908,
+                "total_fees_btc": 6073543165,
+                "n_btc_mined": 205000000000,
+                "n_tx": 233805,
+                "n_blocks_mined": 164,
+                "minutes_between_blocks": 8.2577,
+                "totalbc": 1587622500000000,
+                "n_blocks_total": 430098,
+                "estimated_transaction_volume_usd": 123429768.68108143,
+                "blocks_size": 117490685,
+                "miners_revenue_usd": 1287626.6577490852,
+                "nextretarget": 431423,
+                "difficulty": 225832872179,
+                "estimated_btc_sent": 20233161880242,
+                "miners_revenue_btc": 2110,
+                "total_btc_sent": 184646388663542,
+                "trade_volume_btc": 21597.09997288,
+                "trade_volume_usd": 13175029.536228297,
+                "timestamp": 1474035340000
+        }
+        const formatedStats = [
+            { 
+                title: 'Market Price',
+                value: data.market_price_usd.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+            },
+            {
+                title: 'Hash Rate',
+                value: _nFormatter(data.hash_rate)
+            },
+            {
+                title: 'Avg Block Size',
+                value: _nFormatter(data.blocks_size)
+            },
+            {
+                title: 'Total BTC Sent',
+                value: _nFormatter(data.total_btc_sent)
+            }
+        ]
+            
+        const response = await Promise.resolve(formatedStats)
+        return response
+    } catch (error) {
+        console.error(error)
+        return error
+    }
+}
 
+function _nFormatter(num) {
+    if (num >= 1000000000) {
+       return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'G';
+    }
+    if (num >= 1000000) {
+       return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    }
+    if (num >= 1000) {
+       return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    }
+    return num;
+}
 
 
 export const bitcoinService = {
     getRate,
     getMarketPriceHistory,
     getAvgBlockSize,
+    getMarketStats
 }

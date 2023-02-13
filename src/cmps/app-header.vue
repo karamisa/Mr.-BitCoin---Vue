@@ -1,18 +1,25 @@
 <template>
-  <header class="p-4 bg-gray-800 text-gray-100">
+  <!-- App Header -->
+  <header class="bg-gray-800 p-4 text-gray-100">
     <div class="container mx-auto flex h-16 justify-between">
-      <RouterLink to="/" class="flex items-center p-2">
+      <RouterLink to="/" class="flex items-center p-2 gap-2">
         <Logo />
+        BTC Wallet
       </RouterLink>
-        <AppNav />
+      <AppNav />
     </div>
   </header>
-  <div class='px-4 bg-amber-400 text-gray-800'>
-  <div class="container mx-auto">
+
+  <!-- Header Bottom Line -->
+  <div class="bg-amber-400 px-4 text-gray-800">
+    <div class="container mx-auto">
       <BreadcrumbLoader v-if="loadingUser || loadingExchangeRate" />
-      <div v-else class="flex justify-between gap-4">
-        <p class="mr-2">Welcome Back, {{ user.name }}</p>
-        <p class="dark:text-gray-800 font-bold">BTC/USD: {{ exchangeRate }}</p>
+      <div v-else class="flex justify-end gap-4">
+        <p class="font-bold dark:text-gray-800">BTC/USD: {{ exchangeRate }}</p>
+        <span>|</span>
+        <p class="font-bold dark:text-gray-800">Balance: {{ user.balance }}</p>
+        <span>|</span>
+        <p class="mr-2">{{ user.name }}</p>
       </div>
     </div>
   </div>
@@ -21,8 +28,8 @@
 <script>
 import { userService } from "../services/user.service";
 import { bitcoinService } from "../services/bitcoin.service";
-import breadcrumbLoader from "./breadcrumb-loader.vue";
-import logo from "./logo.vue";
+import breadcrumbLoader from "./ui/breadcrumb-loader.vue";
+import logo from "./ui/logo.vue";
 import appNav from "./app-nav.vue";
 
 export default {
@@ -42,11 +49,10 @@ export default {
     this.exchangeRate = await bitcoinService.getRate();
     this.loadingExchangeRate = false;
   },
-    components: {
-      BreadcrumbLoader: breadcrumbLoader,
-        Logo: logo,
-        AppNav: appNav,
-    },
+  components: {
+    BreadcrumbLoader: breadcrumbLoader,
+    Logo: logo,
+    AppNav: appNav,
+  },
 };
 </script>
-

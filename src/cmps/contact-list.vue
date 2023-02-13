@@ -1,9 +1,17 @@
 <template>
   <ul class="space-y-4 lg:columns-2 xl:columns-3">
-    <li v-for="contact in contacts" :key="contact._id" class="flex break-inside-avoid-column justify-between p-3 bg-gray-800 text-gray-100">
+    <li
+      v-for="contact in contacts"
+      :key="contact._id"
+      class="flex break-inside-avoid-column justify-between bg-gray-800 p-3 text-gray-100"
+    >
+      <!-- Contact Preview -->
       <ContactPreview :contact="contact"></ContactPreview>
-      <div class="flex gap-4 items-center">
+
+      <!-- Menu Items: Detaills/Edit/Delete -->
+      <div class="flex items-center gap-4">
         <RouterLink :to="`/contact/${contact._id}`">Details</RouterLink>
+        <RouterLink :to="`/contact/edit/${contact._id}`">Edit</RouterLink>
         <button
           @click="onRemoveContact(contact._id)"
           class="bg-red-500 p-2 text-white"

@@ -1,6 +1,13 @@
 <template>
+  <!-- CONTACT INDEX -->
+  <!-- CMPS: ContactFilter / ContactList / AddBtn -->
   <div class="container mx-auto">
-    <ContactFilter @filter="onSetFilterBy" />
+    <!-- Filter + AddBtn -->
+    <div class="flex justify-between py-4">
+      <ContactFilter @filter="onSetFilterBy" />
+      <RouterLink :to="`/contact/edit`"><AddBtn /></RouterLink>
+    </div>
+    <!-- Contact List -->
     <ContactList
       v-if="contacts"
       :contacts="filteredContacts"
@@ -10,39 +17,46 @@
 </template>
 
 <script>
-import { contactService } from "@/services/contact.service.js";
 import ContactFilter from "@/cmps/contact-filter.vue";
 import ContactList from "@/cmps/contact-list.vue";
+import addBtn from "@/cmps/ui/add-btn.vue";
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
 
 export default {
-  data() {
-    return {
-      contacts: null,
-      filterBy: {},
-    };
-  },
-  async created() {
-    this.contacts = await contactService.query();
-    console.log("contacts", this.contacts);
-  },
-  methods: {
-    onSetFilterBy(filterBy) {
-      this.filterBy = filterBy;
-    },
-    async removeContact(id) {
-      await contactService.remove(id);
-      this.contacts = this.contacts.filter((contact) => contact._id !== id);
-    },
-  },
   computed: {
+    contacts() {
+      return this.$store.getters.contacts;
+    },
     filteredContacts() {
       const regex = new RegExp(this.filterBy.txt, "i");
       return this.contacts.filter((contact) => regex.test(contact.name));
     },
   },
+  data() {
+    return {
+      filterBy: {},
+    };
+  },
+  created() {
+    this.$store.dispatch("loadContacts");
+  },
+  methods: {
+    onSetFilterBy(filterBy) {
+      this.filterBy = filterBy;
+    },
+    async removeContact(contactId) {
+      try {
+        await this.$store.dispatch({ type: "removeContact", contactId });
+        showSuccessMsg("Contact removed");
+      } catch (err) {
+        showErrorMsg("Cannot remove contact");
+      }
+    },
+  },
   components: {
     ContactFilter,
     ContactList,
+    AddBtn: addBtn,
   },
 };
 </script>
