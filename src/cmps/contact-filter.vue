@@ -1,5 +1,5 @@
 <template>
-  <fieldset class="w-full space-y-1 dark:text-gray-100 py-4">
+  <fieldset class="space-y-1 dark:text-gray-100">
     <label for="Search" class="hidden">Search</label>
     <div class="relative">
       <span class="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -34,16 +34,16 @@
 export default {
   data() {
     return {
-        filterBy: {
-                txt: '',
-            }
-    }
+      filterBy: {
+        txt: "",
+      },
+    };
   },
-  emits: ['filter'],
+  emits: ["filter"],
   methods: {
-        onFilter() {
-            this.$emit('filter', this.filterBy)
-        }
-    }
-}
+    onFilter() {
+      this.$emit("filter", this.filterBy);
+    },
+  },
+};
 </script>
