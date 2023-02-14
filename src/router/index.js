@@ -4,12 +4,17 @@ import HomePage from '../pages/home-page.vue'
 import ContactIndex from '../pages/contact-index.vue'
 import ContactDetails from '../pages/contact-details.vue'
 import ContactEdit from '../pages/contact-edit.vue'
+import LoginPage from '../pages/login-page.vue'
 
 const routerOptions = {
     history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
+            redirect: '/signup',
+        },
+        {
+            path: '/home',
             component: HomePage,
         },
         {
@@ -31,6 +36,11 @@ const routerOptions = {
             // which is lazy-loaded when the route is visited.
             component: () => import('../pages/statistics-page.vue'),
         },
+        {
+            path: '/signup',
+            component: LoginPage,
+
+        }
     ],
 }
 const router = createRouter(routerOptions)

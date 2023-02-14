@@ -9,7 +9,7 @@ const marketStatsAPI = 'https://api.blockchain.info/stats?cors=true'
 async function getRate() {
     try {
         const response = await axios.get(exchangeRatesAPI)
-        return response.data
+        return _nFormatter(1/+response.data)
     } catch (error) {
         console.error(error)
         return error

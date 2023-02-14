@@ -1,25 +1,53 @@
 <template>
-  <!-- CONTACT INDEX -->
-  <!-- CMPS: ContactFilter / ContactList / AddBtn -->
-  <div class="container mx-auto">
-    <!-- Filter + AddBtn -->
-    <div class="flex justify-between py-4">
-      <ContactFilter @filter="onSetFilterBy" />
-      <RouterLink :to="`/contact/edit`"><AddBtn /></RouterLink>
+    <div class="container mx-auto">
+      <!-- Contact Filter + Add -->
+      <div class="flex justify-between py-4">
+        <ContactFilter @filter="onSetFilterBy" />
+        <RouterLink
+          is="button"
+          :to="`/contact/edit`"
+          class="btn-outline btn-info btn"
+          >Add +
+        </RouterLink>
+      </div>
+
+      <!-- Contact Directory -->
+      <div class="h-[70vh] overflow-auto shadow sm:rounded-lg">
+      <ContactDirectory v-if="contacts" :contacts="filteredContacts">
+        <template v-slot:contact="{ contact }">
+          <div class="flex items-center">
+            <RouterLink
+              :to="`/contact/${contact._id}`"
+              class="relative flex flex-1 items-center space-x-3 px-6 py-5 hover:bg-gray-50"
+            >
+              <ContactPreview :contact="contact" />
+            </RouterLink>
+            <RouterLink
+              :to="`/contact/edit/${contact._id}`"
+              class="link-primary link"
+            >
+              <EditIcon />
+            </RouterLink>
+            <button
+              class="btn-outline btn-error btn-circle btn mx-6"
+              @click.stop="removeContact(contact._id)"
+            >
+              <Xicon />
+            </button>
+          </div>
+        </template>
+      </ContactDirectory>
     </div>
-    <!-- Contact List -->
-    <ContactList
-      v-if="contacts"
-      :contacts="filteredContacts"
-      @remove="removeContact"
-    />
   </div>
 </template>
 
 <script>
 import ContactFilter from "@/cmps/contact-filter.vue";
-import ContactList from "@/cmps/contact-list.vue";
-import addBtn from "@/cmps/ui/add-btn.vue";
+import ContactDirectory from "@/cmps/contact-directory.vue";
+import ContactPreview from "@/cmps/contact-preview.vue";
+import Xicon from "@/cmps/icons/x-icon.vue";
+import EditIcon from "@/cmps/icons/edit-icon.vue";
+import AddIcon from "@/cmps/icons/add-icon.vue";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
 
 export default {
@@ -43,6 +71,7 @@ export default {
   methods: {
     onSetFilterBy(filterBy) {
       this.filterBy = filterBy;
+      console.log("filterBy", filterBy);
     },
     async removeContact(contactId) {
       try {
@@ -55,8 +84,11 @@ export default {
   },
   components: {
     ContactFilter,
-    ContactList,
-    AddBtn: addBtn,
+    ContactDirectory,
+    ContactPreview,
+    AddIcon,
+    Xicon,
+    EditIcon,
   },
 };
 </script>

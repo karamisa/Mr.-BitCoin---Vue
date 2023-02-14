@@ -17,7 +17,7 @@
             type="text"
             v-model="contactToEdit.name"
             placeholder="Name"
-            class="w-full rounded-md focus:ring focus:ring-amber-400 focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
+            class="w-full rounded-md focus:ring focus:ring-amber-400 focus:ring-opacity-75 border-gray-700 text-gray-900"
           />
         </div>
         <div class="col-span-full sm:col-span-3">
@@ -27,7 +27,7 @@
             type="email"
             v-model="contactToEdit.email"
             placeholder="Email"
-            class="w-full rounded-md focus:ring focus:ring-amber-400 focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
+            class="w-full rounded-md focus:ring focus:ring-amber-400 focus:ring-opacity-75 border-gray-700 text-gray-900"
           />
         </div>
         <div class="col-span-full sm:col-span-3">
@@ -37,7 +37,7 @@
             type="text"
             v-model="contactToEdit.phone"
             placeholder="Phone"
-            class="w-full rounded-md focus:ring focus:ring-amber-400 focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
+            class="w-full rounded-md focus:ring focus:ring-amber-400 focus:ring-opacity-75 border-gray-700 text-gray-900"
           />
         </div>
         <div class="col-span-full sm:col-span-3">
@@ -47,7 +47,7 @@
             type="text"
             v-model="contactToEdit.imgUrl"
             placeholder="imgUrl"
-            class="w-full rounded-md focus:ring focus:ring-amber-400 focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
+            class="w-full rounded-md focus:ring focus:ring-amber-400 focus:ring-opacity-75 border-gray-700 text-gray-900"
           />
         </div>
       </div>

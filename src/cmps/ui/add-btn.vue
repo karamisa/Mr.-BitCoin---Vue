@@ -6,8 +6,6 @@
     Add
     <svg
       class="h-3.5 w-3.5"
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
       stroke-width="2"
       stroke="currentColor"

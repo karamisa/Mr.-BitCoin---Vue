@@ -1,6 +1,4 @@
 <template>
-  <!-- CONTACT EDIT -->
-  <!-- CMPS: RouterLink / BackBtn / ContactForm -->
   <section v-if="contactToEdit" class="bg-gray-800 p-6 text-gray-50">
     <RouterLink class="text-end" to="/contact">
       <BackBtn />

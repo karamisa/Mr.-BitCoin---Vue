@@ -1,7 +1,7 @@
 <template>
   <nav class="flex items-stretch space-x-3">
     <RouterLink
-      to="/"
+      to="/home"
       class="-mb-1 flex items-center border-b-2 px-4 border-transparent"
       >Home</RouterLink
     >
@@ -26,6 +26,6 @@ export default {
 
 <style scoped>
 nav a.router-link-exact-active {
-  @apply border-amber-400 text-amber-400;
+  @apply border-primary text-primary;
 }
 </style>

@@ -42,8 +42,9 @@ export default {
           {
             label: this.data.name,
             data: this.data.values.map((d: { y: any }) => d.y ),
-            borderColor: '#3cba9f',
-            fill: false
+            borderColor: 'rgb(251, 191, 36)',
+            fill: false,
+            color: 'rgb(251, 191, 36)',
           }
         ]
       }

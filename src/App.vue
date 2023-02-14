@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 main {
-    min-height: calc(100vh - 12.75rem );
+    min-height: calc(100vh - 11.50rem );
     padding-bottom: 1rem;
 }
 </style>

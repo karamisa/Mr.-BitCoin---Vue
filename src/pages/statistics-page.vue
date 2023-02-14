@@ -1,7 +1,9 @@
 <template>
-  <div v-if="loaded" class="container mx-auto h-96">
+  <div v-if="loaded" class="container mx-auto">
     <StatsSummary :summaryData="summaryData" />
-    <LineChart :data="chartData" />
+    <div class="h-96">
+      <LineChart :data="chartData" />
+    </div>
   </div>
 </template>
 
