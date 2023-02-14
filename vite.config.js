@@ -4,12 +4,13 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+module.exports =  defineConfig({
+  publicPath: process.env.NODE_ENV === 'production' ? '/REPO_NAME/' : '/',
   plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  },
-  publicPath: process.env.NODE_ENV === "production" ? "/Mr.-BitCoin---Vue/" : "/",
+  }
 })
+
