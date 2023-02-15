@@ -1,29 +1,28 @@
-# BTCCC
+# BTC - Wallet Vue
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+## SUMMARY
+This app was built after 2 days of getting familiar with view. It is a simple CRUDL App that can track contacts and user balances. Over the course of 3 days I progressively integrated more features that come with Vue. Additionally, I decided to learn tailwind, and use it into the project. 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
+## Included Features: 
+  - Vue App
+  - Vite
+  - Vuex (store/state management)
+  - Tailwind (0 css)
+      + DaisyUI
+  - EventBus 
+ 
+ 
+## Refelctions: 
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Vue is Amazing!
+I really like it. I need more time to get familiar with the syntax and plethera of features provided by Vue. Compared to React, it is more of a framwork and has more to offer rather than using other libraries. I feel like React is really great at making small modular cmps, which scales well for very large projects. Overall Vue is another great tool for the toolbox. 
 
-## Project Setup
+### Vite is great!
+Vite is both very fast and powerful. It felt more lightweight than webpack. and made the developing proccess a lot smoother.
 
-```sh
-npm install
-```
+### Tailwindcss
+Using tailwind was a very cool experience. Having all your code in a single place is powerful. However, I learned quickly that it requires that you know how to write almost-perfect css and perfect clean code. Otherwise, your code will be unreadable. Basically, if your code is readable with tailwind, its probably very well written. So it can serve as a good way to know if you are writing good/dry code. 
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Looking back, it probably made things a little more difficult because I was trying to get used to the template html in Vue and it had a bunch of class names. Moreso, I dont know if it is optimal for Vue. For react hoever, I think it will be amazing. Why? Becuase React is so componenet based that every componenet is usually very small, so you can integrate the class names better.
