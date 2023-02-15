@@ -2,7 +2,7 @@
 
 
 ## SUMMARY
-This app was built after 2 days of getting familiar with view. It is a simple CRUDL App that can track contacts and user balances. Over the course of 3 days I progressively integrated more features that come with Vue. Additionally, I decided to learn tailwind, and use it into the project. 
+This app was built after 2 days of getting familiar with Vue. It is a simple CRUDL App that can track contacts and user balances. Over the course of 3 days I progressively integrated more features that come with Vue. Additionally, I decided to learn tailwind, and use it into the project. 
 
 
 ## Included Features: 
