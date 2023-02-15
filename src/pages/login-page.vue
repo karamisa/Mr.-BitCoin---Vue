@@ -1,10 +1,9 @@
 <template>
   <div class="pt-[20vh]">
     <div
-      class="container mx-auto flex items-center overflow-hidden rounded-lg text-gray-900 bg-white shadow justify-center"
+      class="container mx-auto flex items-center justify-center overflow-hidden rounded-lg bg-white text-gray-900 shadow"
     >
-      <!-- Content goes here -->
-      <h1 class="text-center text-2xl font-bold ml-4">Login:</h1>
+      <h1 class="ml-4 text-center text-2xl font-bold">Login:</h1>
       <form @submit.prevent="login" class="m-4 sm:flex sm:items-center">
         <div class="w-full sm:max-w-xs">
           <label for="name" class="sr-only">Name</label>
