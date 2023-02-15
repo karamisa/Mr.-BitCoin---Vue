@@ -2,16 +2,16 @@
   <nav class="h-full overflow-y-auto border">
     <div v-for="letter in letters" :key="letter">
       <div
-        class="sticky top-0 z-10 border-t border-b border-gray-200 bg-gray-50 text-gray-500 px-6 py-1 text-sm font-medium"
+        class="sticky top-0 z-10 border-t border-b border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500"
       >
         <h3>{{ letter }}</h3>
       </div>
-      <ul role="list" class="relative z-0 divide-y bg-white divide-gray-200">
+      <ul role="list" class="relative z-0 divide-y divide-gray-200 bg-white">
         <slot
           name="contact"
           v-for="contact in filteredContacts(letter)"
           :contact="contact"
-          :key="contact.id"
+          :key="contact._id"
         ></slot>
       </ul>
     </div>

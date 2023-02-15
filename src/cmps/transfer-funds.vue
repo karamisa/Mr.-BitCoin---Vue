@@ -24,7 +24,7 @@
               id="amount"
               required
               v-model="amount"
-              class="block w-full rounded-md border-gray-300 text-gray-900 pl-7 pr-12 sm:text-sm"
+              class="block w-full rounded-md border-gray-300 pl-7 pr-12 text-gray-900 sm:text-sm"
               placeholder="0.00"
               aria-describedby="price-currency"
             />
@@ -48,13 +48,13 @@ export default {
   props: ["contact"],
   data() {
     return {
-      amount: '',
+      amount: "",
     };
   },
   methods: {
     transfer() {
       this.$emit("transfer", this.amount);
-      this.amount = ''
+      this.amount = "";
     },
   },
 };

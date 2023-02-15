@@ -1,16 +1,16 @@
 <template>
   <div
     v-if="alive"
-    class=" mr-10 mt-10 absolute top-0 right-0 flex max-w-2xl gap-6 divide-x divide-gray-700 overflow-hidden rounded-lg shadow-md bg-gray-900 text-gray-100"
+    class="absolute top-0 right-0 mr-10 mt-10 flex max-w-2xl gap-6 divide-x divide-gray-700 overflow-hidden rounded-lg bg-gray-900 text-gray-100 shadow-md"
     :class="alertClass"
   >
-    <div class="flex flex-1 flex-col border-l-8 p-4 border-amber-400">
+    <div class="flex flex-1 flex-col border-l-8 border-amber-400 p-4">
       <span class="text-2xl">{{ msg.type || "" }}</span>
-      <span class="text-xs dark:text-gray-400">{{ msg.txt }}</span>
+      <span class="dark:text-gray-400 text-xs">{{ msg.txt }}</span>
     </div>
     <button
-      class="flex items-center px-4 text-xs uppercase tracking-wide border-gray-700 text-gray-400"
-        @click="alive = false"
+      class="flex items-center border-gray-700 px-4 text-xs uppercase tracking-wide text-gray-400"
+      @click="alive = false"
     >
       Dismiss
     </button>

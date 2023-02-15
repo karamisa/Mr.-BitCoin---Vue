@@ -22,7 +22,7 @@
           </div>
           <div class="divider"></div>
           <div>
-            <h2 class="text-2xl font-semibold text-center">Transactions</h2>
+            <h2 class="text-center text-2xl font-semibold">Transactions</h2>
             <TransactionList
               v-if="contact && transactions"
               :transactions="filteredTransactions"

@@ -9,38 +9,10 @@
         Made By Karam Isa • Vue - Tailwind CSS - Vuex
       </h1>
       <div class="grid grid-cols-2 gap-10 text-center lg:grid-cols-5">
-        <div class="flex items-center justify-center">
+        <div v-for="logo in logos" class="flex items-center justify-center">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
-            alt="vite Logo"
-            class="block h-8 object-contain"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg"
-            alt="vue Logo"
-            class="block h-8 object-contain"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="https://kutty.netlify.app/logos/tailwindcss.svg"
-            alt="tailwindcss Logo"
-            class="block h-8 object-contain"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg"
-            alt="JS Logo"
-            class="block h-8 object-contain"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="https://kutty.netlify.app/logos/visual-studio-code.svg"
-            alt="visual-studio-code Logo"
+            :src="logo.src"
+            :alt="logo.name"
             class="block h-8 object-contain"
           />
         </div>
@@ -53,7 +25,37 @@
 <script>
 import appNav from "./app-nav.vue";
 import UserMsg from "./user-msg.vue";
+
+const logos = [
+  {
+    name: "vite",
+    src: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg",
+  },
+  {
+    name: "vue",
+    src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg",
+  },
+  {
+    name: "tailwindcss",
+    src: "https://kutty.netlify.app/logos/tailwindcss.svg",
+  },
+  {
+    name: "JS",
+    src:
+      "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+  },
+  {
+    name: "visual-studio-code",
+    src: "https://kutty.netlify.app/logos/visual-studio-code.svg",
+  },
+];
+
 export default {
+  data() {
+    return {
+      logos,
+    };
+  },
   components: {
     AppNav: appNav,
     UserMsg,
